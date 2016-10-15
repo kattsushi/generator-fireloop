@@ -1,0 +1,25 @@
+{
+  "name": "generator-fireloop",
+  "version": "1.0.0-alpha.1",
+  "description": "",
+  "scripts": {
+    "build": "./node_modules/.bin/tsc"
+  },
+  "files": [
+    "generators/sdk",
+    "generators/server"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "fireloop",
+    "loopback",
+    "nodejs"
+  ],
+  "dependencies": {
+    "generator-loopback": "1.24.4",
+    "yeoman-generator": "0.24.1"
+  },
+  "devDependencies": {
+    "typescript": "2.0.3"
+  }
+}
