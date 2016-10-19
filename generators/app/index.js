@@ -1,4 +1,6 @@
+"use strict";
 var generators = require('yeoman-generator');
+var chalk = require('chalk');
 /**
  * @module ServerGenerator [FireLoop]
  * @author Jonathan Casarrubias <t: johncasarrubias, gh:mean-expert-official>
@@ -10,12 +12,15 @@ module.exports = generators.Base.extend({
     constructor: function () {
         // Calling the super constructor is important so our generator is correctly set up
         generators.Base.apply(this, arguments);
-        this.argument('appname', { type: String, required: true, store: true });
-        this.log('FireLoop.io');
+        this.log(chalk.yellow('Setting up new FireLoop environment.'));
     },
     // Not reinventing the wheel, let LoopBack Generator to build the Base.
     installBase: function () {
-        this.composeWith('fireloop:loopback', {}, {
+        this.composeWith('fireloop:loopback', {
+            options: {
+                'skip-next-steps': true,
+            }
+        }, {
             local: require.resolve('generator-loopback')
         });
     },
@@ -23,6 +28,6 @@ module.exports = generators.Base.extend({
     installMEANExpert: function () {
         this.npmInstall(['@mean-expert/loopback-sdk-builder'], { 'save-dev': true });
         this.npmInstall(['@mean-expert/loopback-component-realtime'], { 'save': true });
-    }
+    },
 });
-//# sourceMappingURL=/Volumes/HD710M/development/www/mean.expert/fireloop/generator-fireloop/src/server/index.js.map
+//# sourceMappingURL=/Volumes/HD710M/development/www/mean.expert/fireloop.io/generator-fireloop/src/app/index.js.map

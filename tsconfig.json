@@ -12,7 +12,10 @@
     "typeRoots": [
       "../node_modules/@types"
     ],
-    "types": []
+    "types": [
+      "chalk",
+      "ejs"
+    ]
   },
   "exclude": [
     "example",

@@ -1,3 +1,5 @@
+"use strict";
+var yosay = require('yosay');
 var generators = require('yeoman-generator');
 /**
  * @module Builder [FireLoop]
@@ -10,10 +12,10 @@ module.exports = generators.Base.extend({
     constructor: function () {
         // Calling the super constructor is important so our generator is correctly set up
         generators.Base.apply(this, arguments);
+        this.log(yosay('Building your FireLoop SDK!'));
     },
     buildSDK: function () {
-        this.log(this.sdkpath);
         this.spawnCommand("./node_modules/.bin/lb-sdk", ['server/server', './client/sdk']);
     }
 });
-//# sourceMappingURL=/Volumes/HD710M/development/www/mean.expert/fireloop/generator-fireloop/src/sdk/index.js.map
+//# sourceMappingURL=/Volumes/HD710M/development/www/mean.expert/fireloop.io/generator-fireloop/src/sdk/index.js.map
