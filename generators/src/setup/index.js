@@ -1,8 +1,6 @@
 "use strict";
 var fs = require('fs');
 var yosay = require('yosay');
-var rmdir = require('rimraf');
-var mkdirp = require('mkdirp');
 var generators = require('yeoman-generator');
 var chalk = require('chalk');
 var ejs = require('ejs');
@@ -22,14 +20,7 @@ module.exports = generators.Base.extend({
     // Configure Component
     configureComponent: function () {
         var _this = this;
-        mkdirp.sync(this.destinationPath('clients'));
-        rmdir.sync(this.destinationPath('client'));
         [
-            {
-                template: 'templates/clients-readme.ejs',
-                output: 'clients/readme.md',
-                params: {}
-            },
             {
                 template: 'templates/component-config.ejs',
                 output: 'server/component-config.json',
@@ -47,9 +38,8 @@ module.exports = generators.Base.extend({
             }
         ].forEach(function (config) {
             console.info('Generating: %s', "" + config.output);
-            // TODO: Migrate to native yeoman fs library tool
             fs.writeFileSync(_this.destinationPath(config.output), ejs.render(fs.readFileSync(require.resolve(__dirname + "/../../" + config.template), { encoding: 'utf-8' }), config.params));
         });
     }
 });
-//# sourceMappingURL=/Volumes/HD710M/development/www/mean.expert/fireloop.io/generator-fireloop/src/setup/index.js.map
+//# sourceMappingURL=/Volumes/HD710M/development/www/mean.expert/fireloop.io/generator-fireloop/src/src/setup/index.js.map
