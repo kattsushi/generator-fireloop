@@ -23,26 +23,20 @@ module.exports = generators.Base.extend({
   },
   // Configure Component
   configureComponent: function () {
-    mkdirp.sync(this.destinationPath('clients'))
     rmdir.sync(this.destinationPath('client'));
     [
       {
-        template: 'templates/clients-readme.ejs',
-        output: 'clients/readme.md',
-        params: {}
-      },
-      {
-        template: 'templates/component-config.ejs',
+        template: 'templates/component-config.json',
         output: 'server/component-config.json',
         params: {}
       },
       {
-        template: 'templates/server.ejs',
+        template: 'templates/server.js',
         output: 'server/server.js',
         params: {}
       },
       {
-        template: 'templates/model-config.ejs',
+        template: 'templates/model-config.json',
         output: 'server/model-config.json',
         params: {}
       }

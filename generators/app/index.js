@@ -1,6 +1,7 @@
 "use strict";
 var yosay = require('yosay');
 var generators = require('yeoman-generator');
+var chalk = require('chalk');
 /**
  * @module FireLoopGenerator [FireLoop]
  * @author Jonathan Casarrubias <t: johncasarrubias, gh:mean-expert-official>
@@ -11,6 +12,7 @@ module.exports = generators.Base.extend({
     constructor: function () {
         generators.Base.apply(this, arguments);
         this.log(yosay('Welcome to FireLoop! \n The MEAN Stack Platform by MEAN Expert'));
+        this.config.save();
     },
     prompting: function () {
         return this.prompt([{
@@ -21,7 +23,7 @@ module.exports = generators.Base.extend({
                 choices: [
                     '1.- Generate FireLoop Project',
                     '2.- Generate Angular2 Client',
-                    '3.- Display Version'
+                    '3.- FireLoop Version'
                 ]
             }]).then(function (answers) {
             var _this = this;
@@ -31,16 +33,17 @@ module.exports = generators.Base.extend({
                 default:
                 case 1:
                     this.composeWith('fireloop:server').on('end', function () {
-                        _this.composeWith('fireloop:setup');
-                        done();
+                        return _this.composeWith('fireloop:setup').on('end', function () { return done(); });
                     });
                     break;
                 case 2:
-                    this.composeWith('fireloop:web').on('end', function () {
+                    this.composeWith('fireloop:ng2').on('end', function () {
                         done();
                     });
                     break;
                 case 3:
+                    var version = require('../../package.json').version;
+                    this.log(chalk.blue("\nFireLoop Version: " + version + "\n"));
                     break;
                 case 4:
                     break;

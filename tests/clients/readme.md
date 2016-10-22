@@ -1,4 +1,0 @@
-FireLoop Clients
-====================
-
-TODO

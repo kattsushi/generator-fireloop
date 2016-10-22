@@ -13,24 +13,32 @@ module.exports = generators.Base.extend({
   constructor: function () {
     // Calling the super constructor is important so our generator is correctly set up
     generators.Base.apply(this, arguments);
-    this.log(chalk.yellow('Setting up new FireLoop environment.'));
+    this.log(chalk.yellow('\nSetting up new FireLoop environment.\n'));
   },
   // Not reinventing the wheel, let LoopBack Generator to build the Base.
   installBase: function () {
     this.composeWith('fireloop:loopback', {
       options: {
-        'skip-next-steps': true,
-      },
-      args: [
-        '--skip-next-steps'
-      ]
+        skipNextSteps: true
+      }
     }, {
-      local: require.resolve('generator-loopback')
-    });
+        local: require.resolve('generator-loopback')
+      });
   },
   // Install MEAN Expert Dependencies
   installMEANExpert: function () {
     this.npmInstall(['@mean-expert/loopback-sdk-builder'], { 'save-dev': true });
     this.npmInstall(['@mean-expert/loopback-component-realtime'], { 'save': true });
+  },
+
+  end: function () {
+    if (this.options.skipNextSteps) return;
+    this.log('\nNext steps:\n');
+    this.log('\tCreate a model in your server');
+    this.log(chalk.green('\t\t$ fireloop model\n'));
+    this.log('\tRun the server');
+    this.log(chalk.green('\t\t$ node .\n'));
+    this.log('\tCreate a new Angular 2 Client');
+    this.log(chalk.green('\t\t$ fireloop ng2\n'));
   },
 });

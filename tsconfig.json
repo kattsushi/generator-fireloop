@@ -20,6 +20,7 @@
   "exclude": [
     "example",
     "node_modules",
+    "templates",
     "tests",
     "**/*.spec.ts"
   ]

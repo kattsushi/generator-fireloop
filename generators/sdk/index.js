@@ -15,7 +15,10 @@ module.exports = generators.Base.extend({
         this.log(yosay('Building your FireLoop SDK!'));
     },
     buildSDK: function () {
-        this.spawnCommand("./node_modules/.bin/lb-sdk", ['server/server', './client/sdk']);
+        this.spawnCommand("./node_modules/.bin/lb-sdk", [
+            this.options.serverPath || 'server/server',
+            this.options.clientPath || 'webapp/src/app/shared/sdk'
+        ]);
     }
 });
 //# sourceMappingURL=/Volumes/HD710M/development/www/mean.expert/fireloop.io/generator-fireloop/src/sdk/index.js.map

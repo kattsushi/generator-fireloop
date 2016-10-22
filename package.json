@@ -1,19 +1,19 @@
 {
   "name": "generator-fireloop",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0-alpha.4",
   "description": "",
   "scripts": {
     "build": "./node_modules/.bin/tsc",
     "pretest": "rm -r tests && mkdir tests && npm run build",
-    "testOLD": "cd tests && ../node_modules/.bin/yo fireloop testapp && ../node_modules/.bin/yo/ fireloop:setup && ../node_modules/.bin/yo/ fireloop:sdk",
     "test": "cd tests && ../node_modules/.bin/yo fireloop"
   },
   "files": [
     "generators/sdk",
     "generators/app",
-    "generators/web",
-    "generators/setup",
-    "generators/server"
+    "generators/ng2",
+    "generators/ng2web",
+    "generators/server",
+    "generators/setup"
   ],
   "keywords": [
     "FireLoop",
@@ -23,10 +23,9 @@
     "Angular CLI"
   ],
   "dependencies": {
-    "angular-cli": "1.0.0-beta.17",
+    "angular-cli": "^1.0.0-beta.18",
     "chalk": "1.1.3",
     "generator-loopback": "1.24.4",
-    "mv": "^2.1.1",
     "rimraf": "^2.5.4",
     "yeoman-generator": "0.24.1"
   },

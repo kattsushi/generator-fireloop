@@ -18,6 +18,9 @@ module.exports = generators.Base.extend({
   },
   
   buildSDK: function () {
-    this.spawnCommand(`./node_modules/.bin/lb-sdk`, ['server/server', './client/sdk']);
+    this.spawnCommand(`./node_modules/.bin/lb-sdk`, [
+      this.options.serverPath || 'server/server',
+      this.options.clientPath || 'webapp/src/app/shared/sdk'
+    ]);
   }
 });
