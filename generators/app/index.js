@@ -12,40 +12,72 @@ module.exports = generators.Base.extend({
     constructor: function () {
         generators.Base.apply(this, arguments);
         this.log(yosay('Welcome to FireLoop! \n The MEAN Stack Platform by MEAN Expert'));
-        this.config.save();
     },
     prompting: function () {
+        var keys = {
+            GENERATE_PROJECT: 'Generate FireLoop Project',
+            GENERATE_CLIENT: 'Generate Angular2 Client',
+            GENERATE_SDK: 'Generate Angular2 SDK',
+            FIRELOOP_VERSION: 'Show FireLoop Version'
+        };
+        var sharedPaths = {
+            web: 'src/app/shared/sdk',
+            nativescript: 'src/app/shared/sdk',
+            ionic: 'src/app/shared/sdk'
+        };
+        var clients = this.config.get('clients');
+        var choices = new Array();
+        if (!this.config.get('version')) {
+            choices.push(keys.GENERATE_PROJECT);
+        }
+        if (this.config.get('version')) {
+            choices.push(keys.GENERATE_CLIENT);
+        }
+        if (typeof clients === 'object' && Object.keys(clients).length > 0) {
+            choices.push(keys.GENERATE_SDK);
+        }
+        choices.push(keys.FIRELOOP_VERSION);
+        this.config.set('version', require('../../package.json').version);
         return this.prompt([{
                 type: 'list',
                 name: 'list',
                 message: 'What do you want to do?',
                 default: 0,
-                choices: [
-                    '1.- Generate FireLoop Project',
-                    '2.- Generate Angular2 Client',
-                    '3.- FireLoop Version'
-                ]
+                choices: choices
             }]).then(function (answers) {
             var _this = this;
             var done = this.async();
-            var answer = parseInt(answers.list.split('.-').shift());
+            var answer = answers.list;
             switch (answer) {
-                default:
-                case 1:
+                case keys.GENERATE_PROJECT:
                     this.composeWith('fireloop:server').on('end', function () {
                         return _this.composeWith('fireloop:setup').on('end', function () { return done(); });
                     });
                     break;
-                case 2:
+                case keys.GENERATE_CLIENT:
                     this.composeWith('fireloop:ng2').on('end', function () {
                         done();
                     });
                     break;
-                case 3:
+                case keys.GENERATE_SDK:
+                    this.prompt([{
+                            type: 'list',
+                            name: 'client',
+                            message: 'For which application do you want to build an SDK?',
+                            default: 0,
+                            choices: Object.keys(clients)
+                        }]).then(function (answers) {
+                        this.composeWith('fireloop:sdk', {
+                            options: {
+                                clientPath: clients[answers.client].path + "/" + sharedPaths[clients[answers.client].type],
+                                type: clients[answers.client].type
+                            }
+                        });
+                    }.bind(this));
+                    break;
+                case keys.FIRELOOP_VERSION:
                     var version = require('../../package.json').version;
                     this.log(chalk.blue("\nFireLoop Version: " + version + "\n"));
-                    break;
-                case 4:
                     break;
             }
         }.bind(this));
