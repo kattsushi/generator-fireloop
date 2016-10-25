@@ -60,12 +60,10 @@ module.exports = generators.Base.extend({
       let answer = answers.list;
       switch (answer) {
         case keys.GENERATE_PROJECT:
-          this.composeWith('fireloop:server').on('end', () =>
-            this.composeWith('fireloop:setup').on('end', () => {
-              this.config.set('version', require('../../package.json').version);
-              done();
-            })
-          );
+          this.composeWith('fireloop:server').on('end', () => {
+            this.config.set('version', require('../../package.json').version);
+            this.composeWith('fireloop:setup').on('end', () => done())
+          });
           break;
         case keys.GENERATE_CLIENT:
           this.composeWith('fireloop:ng2').on('end', () => {
