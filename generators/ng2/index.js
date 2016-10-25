@@ -1,6 +1,7 @@
 "use strict";
 var yosay = require('yosay');
 var generators = require('yeoman-generator');
+var chalk = require('chalk');
 ;
 /**
  * @module Angular 2 [FireLoop]
@@ -23,8 +24,8 @@ module.exports = generators.Base.extend({
                 default: 0,
                 choices: [
                     '1.- Angular 2 Web',
-                    '2.- Angular 2 {N}ative',
-                    '3.- Angular 2 Ionic'
+                    '2.- Angular 2 {N}ative (TODO)',
+                    '3.- Angular 2 Ionic (TODO)'
                 ]
             }]).then(function (answers) {
             var done = this.async();
@@ -35,12 +36,12 @@ module.exports = generators.Base.extend({
                     this.composeWith('fireloop:ng2web').on('end', function () { return done(); });
                     break;
                 case 2:
-                    this.composeWith('fireloop:ng2native').on('end', function () { return done(); });
+                    this.log(chalk.red('Oops. I\'m sorry, this is not yet implemented'));
+                    //this.composeWith('fireloop:ng2native').on('end', () => done());
                     break;
                 case 3:
-                    this.composeWith('fireloop:ng2ionic').on('end', function () { return done(); });
-                    break;
-                case 4:
+                    this.log(chalk.red('Oops. I\'m sorry, this is not yet implemented'));
+                    //this.composeWith('fireloop:ng2ionic').on('end', () => done());
                     break;
             }
         }.bind(this));

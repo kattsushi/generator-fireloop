@@ -37,7 +37,6 @@ module.exports = generators.Base.extend({
             choices.push(keys.GENERATE_SDK);
         }
         choices.push(keys.FIRELOOP_VERSION);
-        this.config.set('version', require('../../package.json').version);
         return this.prompt([{
                 type: 'list',
                 name: 'list',
@@ -51,7 +50,10 @@ module.exports = generators.Base.extend({
             switch (answer) {
                 case keys.GENERATE_PROJECT:
                     this.composeWith('fireloop:server').on('end', function () {
-                        return _this.composeWith('fireloop:setup').on('end', function () { return done(); });
+                        return _this.composeWith('fireloop:setup').on('end', function () {
+                            _this.config.set('version', require('../../package.json').version);
+                            done();
+                        });
                     });
                     break;
                 case keys.GENERATE_CLIENT:

@@ -27,7 +27,8 @@ module.exports = generators.Base.extend({
             }
             else {
                 this.log(chalk.green("\n\nCreating new Angular 2 Application: " + answers.name));
-                this.spawnCommand(__dirname + "/../../node_modules/.bin/ng", ['new', answers.name])
+                var clicmd = require.resolve('angular-cli').replace(/angular-cli\/lib\/cli\/index.js/, '') + ".bin/ng ";
+                this.spawnCommand(clicmd, ['new', answers.name], { shell: true })
                     .on('exit', function (code) {
                     if (code === 0) {
                         _this.options.current = answers.name;
