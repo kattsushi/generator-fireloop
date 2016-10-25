@@ -33,12 +33,12 @@ module.exports = generators.Base.extend({
         if (this.options.skipNextSteps)
             return;
         this.log('\nNext steps:\n');
-        this.log('\tCreate a model in your server');
-        this.log(chalk.green('\t\t$ fireloop model\n'));
+        //   this.log('\tCreate a model in your server');
+        //   this.log(chalk.green('\t\t$ fireloop model\n'));
         this.log('\tRun the server');
         this.log(chalk.green('\t\t$ node .\n'));
-        this.log('\tCreate a new Angular 2 Client');
-        this.log(chalk.green('\t\t$ fireloop ng2\n'));
+        this.log('\tCreate a new Angular 2 Client or SDK');
+        this.log(chalk.green('\t\t$ fireloop\n'));
     },
 });
 //# sourceMappingURL=/Volumes/HD710M/development/www/mean.expert/fireloop.io/generator-fireloop/src/server/index.js.map
