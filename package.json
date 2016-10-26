@@ -1,22 +1,16 @@
 {
   "name": "generator-fireloop",
-  "version": "1.0.0-alpha.10",
+  "version": "1.0.0-alpha.11",
   "main": "generators/app/index.js",
   "description": "",
   "scripts": {
     "build": "./node_modules/.bin/tsc",
     "pretest": "rm -r tests && mkdir tests && npm run build",
-    "test": "snyk test && cd tests && ../node_modules/.bin/yo fireloop",
-    "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "test": "cd tests && ../node_modules/.bin/yo fireloop",
+    "prepublish": ""
   },
   "files": [
-    "generators/sdk",
-    "generators/app",
-    "generators/ng2",
-    "generators/ng2web",
-    "generators/server",
-    "generators/setup",
+    "generators",
     "templates"
   ],
   "keywords": [
@@ -40,6 +34,5 @@
     "ejs": "2.5.2",
     "typescript": "2.0.3",
     "yo": "1.8.5"
-  },
-  "snyk": true
+  }
 }

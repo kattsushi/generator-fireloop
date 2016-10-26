@@ -1,0 +1,132 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@3.10.9
+3 info using node@v6.4.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Volumes/HD710M/development/www/mean.expert/fireloop.io/generator-fireloop',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/jcasarrubias/.npm/generator-fireloop/1.0.0-alpha.10/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/jcasarrubias/.npm correctMkdir not in flight; initializing
+10 info lifecycle generator-fireloop@1.0.0-alpha.10~prepublish: generator-fireloop@1.0.0-alpha.10
+11 verbose lifecycle generator-fireloop@1.0.0-alpha.10~prepublish: unsafe-perm in lifecycle true
+12 verbose lifecycle generator-fireloop@1.0.0-alpha.10~prepublish: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Volumes/HD710M/development/www/mean.expert/fireloop.io/generator-fireloop/node_modules/.bin:/Volumes/HD710M/development/google-cloud-sdk/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Volumes/HD710M/development/android-sdk/tools:/Volumes/HD710M/development/android-sdk/platform-tools
+13 verbose lifecycle generator-fireloop@1.0.0-alpha.10~prepublish: CWD: /Volumes/HD710M/development/www/mean.expert/fireloop.io/generator-fireloop
+14 silly lifecycle generator-fireloop@1.0.0-alpha.10~prepublish: Args: [ '-c', 'npm run snyk-protect' ]
+15 silly lifecycle generator-fireloop@1.0.0-alpha.10~prepublish: Returned: code: 0  signal: null
+16 verbose tar pack [ '/Users/jcasarrubias/.npm/generator-fireloop/1.0.0-alpha.10/package.tgz',
+16 verbose tar pack   '/Volumes/HD710M/development/www/mean.expert/fireloop.io/generator-fireloop' ]
+17 verbose tarball /Users/jcasarrubias/.npm/generator-fireloop/1.0.0-alpha.10/package.tgz
+18 verbose folder /Volumes/HD710M/development/www/mean.expert/fireloop.io/generator-fireloop
+19 verbose addLocalTarball adding from inside cache /Users/jcasarrubias/.npm/generator-fireloop/1.0.0-alpha.10/package.tgz
+20 verbose correctMkdir /Users/jcasarrubias/.npm correctMkdir not in flight; initializing
+21 silly cache afterAdd generator-fireloop@1.0.0-alpha.10
+22 verbose afterAdd /Users/jcasarrubias/.npm/generator-fireloop/1.0.0-alpha.10/package/package.json not in flight; writing
+23 verbose correctMkdir /Users/jcasarrubias/.npm correctMkdir not in flight; initializing
+24 verbose afterAdd /Users/jcasarrubias/.npm/generator-fireloop/1.0.0-alpha.10/package/package.json written
+25 silly publish { name: 'generator-fireloop',
+25 silly publish   version: '1.0.0-alpha.10',
+25 silly publish   main: 'generators/app/index.js',
+25 silly publish   description: '',
+25 silly publish   scripts:
+25 silly publish    { build: 'tsc',
+25 silly publish      pretest: 'rm -r tests && mkdir tests && npm run build',
+25 silly publish      test: 'snyk test && cd tests && ../node_modules/.bin/yo fireloop',
+25 silly publish      'snyk-protect': 'snyk protect',
+25 silly publish      prepublish: 'npm run snyk-protect' },
+25 silly publish   files:
+25 silly publish    [ 'generators/sdk',
+25 silly publish      'generators/app',
+25 silly publish      'generators/ng2',
+25 silly publish      'generators/ng2web',
+25 silly publish      'generators/server',
+25 silly publish      'generators/setup',
+25 silly publish      'templates' ],
+25 silly publish   keywords: [ 'FireLoop', 'LoopBack', 'NodeJS', 'Angular 2', 'Angular CLI' ],
+25 silly publish   dependencies:
+25 silly publish    { 'angular-cli': '^1.0.0-beta.18',
+25 silly publish      chalk: '1.1.3',
+25 silly publish      'generator-loopback': '^1.24.4',
+25 silly publish      rimraf: '^2.5.4',
+25 silly publish      'yeoman-generator': '^0.24.1',
+25 silly publish      snyk: '^1.19.1' },
+25 silly publish   devDependencies:
+25 silly publish    { '@types/chalk': '0.4.31',
+25 silly publish      '@types/ejs': '2.3.32',
+25 silly publish      ejs: '2.5.2',
+25 silly publish      typescript: '2.0.3',
+25 silly publish      yo: '1.8.5' },
+25 silly publish   snyk: true,
+25 silly publish   gitHead: 'f973a9ac6cd2d2d3c6ac70d14757c28fa6e2d81e',
+25 silly publish   readme: 'ERROR: No README data found!',
+25 silly publish   _id: 'generator-fireloop@1.0.0-alpha.10',
+25 silly publish   _shasum: '4c720a52d9edea30cbe1008cd43bdba59bf42688',
+25 silly publish   _from: '.' }
+26 verbose getPublishConfig undefined
+27 silly mapToRegistry name generator-fireloop
+28 silly mapToRegistry scope (from config) @mean-expert
+29 verbose mapToRegistry no registry URL found in config for scope @mean-expert
+30 silly mapToRegistry using default registry
+31 silly mapToRegistry registry https://registry.npmjs.org/
+32 silly mapToRegistry data Result {
+32 silly mapToRegistry   raw: 'generator-fireloop',
+32 silly mapToRegistry   scope: null,
+32 silly mapToRegistry   escapedName: 'generator-fireloop',
+32 silly mapToRegistry   name: 'generator-fireloop',
+32 silly mapToRegistry   rawSpec: '',
+32 silly mapToRegistry   spec: 'latest',
+32 silly mapToRegistry   type: 'tag' }
+33 silly mapToRegistry uri https://registry.npmjs.org/generator-fireloop
+34 verbose publish registryBase https://registry.npmjs.org/
+35 silly publish uploading /Users/jcasarrubias/.npm/generator-fireloop/1.0.0-alpha.10/package.tgz
+36 verbose request uri https://registry.npmjs.org/generator-fireloop
+37 verbose request sending authorization for write operation
+38 info attempt registry request try #1 at 10:07:03 AM
+39 verbose request using bearer token for auth
+40 verbose request id 14f39dd84ade0b3a
+41 http request PUT https://registry.npmjs.org/generator-fireloop
+42 http 403 https://registry.npmjs.org/generator-fireloop
+43 verbose headers { 'content-type': 'application/json',
+43 verbose headers   'cache-control': 'max-age=300',
+43 verbose headers   'content-length': '104',
+43 verbose headers   'accept-ranges': 'bytes',
+43 verbose headers   date: 'Wed, 26 Oct 2016 15:07:04 GMT',
+43 verbose headers   via: '1.1 varnish',
+43 verbose headers   connection: 'keep-alive',
+43 verbose headers   'x-served-by': 'cache-dfw1835-DFW',
+43 verbose headers   'x-cache': 'MISS',
+43 verbose headers   'x-cache-hits': '0',
+43 verbose headers   'x-timer': 'S1477494423.676327,VS0,VE657',
+43 verbose headers   vary: 'Accept-Encoding' }
+44 verbose request invalidating /Users/jcasarrubias/.npm/registry.npmjs.org/generator-fireloop on PUT
+45 error publish Failed PUT 403
+46 verbose stack Error: "You cannot publish over the previously published version 1.0.0-alpha.10." : generator-fireloop
+46 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:302:12)
+46 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:290:14)
+46 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:210:14)
+46 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:187:22)
+46 verbose stack     at emitTwo (events.js:106:13)
+46 verbose stack     at Request.emit (events.js:191:7)
+46 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1048:10)
+46 verbose stack     at emitOne (events.js:96:13)
+46 verbose stack     at Request.emit (events.js:188:7)
+46 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:969:12)
+47 verbose statusCode 403
+48 verbose pkgid generator-fireloop
+49 verbose cwd /Volumes/HD710M/development/www/mean.expert/fireloop.io/generator-fireloop
+50 error Darwin 16.0.0
+51 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+52 error node v6.4.0
+53 error npm  v3.10.9
+54 error code E403
+55 error "You cannot publish over the previously published version 1.0.0-alpha.10." : generator-fireloop
+56 error If you need help, you may report this error at:
+56 error     <https://github.com/npm/npm/issues>
+57 verbose exit [ 1, true ]
