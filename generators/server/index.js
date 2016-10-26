@@ -17,9 +17,7 @@ module.exports = generators.Base.extend({
     // Not reinventing the wheel, let LoopBack Generator to build the Base.
     installBase: function () {
         this.composeWith('fireloop:loopback', {
-            options: {
-                skipNextSteps: true
-            }
+            options: { skipNextSteps: true }
         }, {
             local: require.resolve('generator-loopback')
         });
