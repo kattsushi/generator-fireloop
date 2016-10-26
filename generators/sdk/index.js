@@ -15,7 +15,8 @@ module.exports = generators.Base.extend({
         this.log(yosay('Building your FireLoop SDK!'));
     },
     buildSDK: function () {
-        this.spawnCommand("./node_modules/.bin/lb-sdk", [
+        this.spawnCommand(require.resolve('ts-node').replace(/ts-node\/dist\/index.js/, '') + ".bin/ts-node", [
+            this.destinationPath('node_modules/.bin/lb-sdk'),
             this.options.serverPath || 'server/server',
             this.options.clientPath || 'webapp/src/app/shared/sdk'
         ]);
