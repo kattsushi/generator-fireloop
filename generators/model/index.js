@@ -18,7 +18,7 @@ module.exports = generators.Base.extend({
         this.log(chalk.yellow('\nLoading LoopBack Model Generator.\n'));
     },
     // Not reinventing the wheel, let LoopBack Generator to build the Base.
-    installBase: function () {
+    initializing: function () {
         this.composeWith('fireloop:model', {
             args: this.options._argv._
         }, { local: require.resolve('generator-loopback/model') });

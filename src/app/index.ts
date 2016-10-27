@@ -20,16 +20,16 @@ module.exports = generators.Base.extend({
   prompting: function () {
 
     let keys: any = {
-      GENERATE_PROJECT: 'Generate FireLoop Project',
-      GENERATE_CLIENT: 'Generate Angular2 Client',
-      GENERATE_SDK: 'Generate Angular2 SDK',
-      FIRELOOP_VERSION: 'Show FireLoop Version'
+      GENERATE_PROJECT : 'Generate FireLoop Project',
+      GENERATE_CLIENT  : 'Generate Angular2 Client',
+      GENERATE_SDK     : 'Generate Angular2 SDK',
+      FIRELOOP_VERSION : 'Show FireLoop Version'
     };
 
     let sharedPaths: any = {
-      web: 'src/app/shared/sdk',
-      nativescript: 'src/app/shared/sdk',
-      ionic: 'src/app/shared/sdk'
+      web          : 'src/app/shared/sdk',
+      nativescript : 'src/app/shared/sdk',
+      ionic        : 'src/app/shared/sdk'
     };
 
     let clients: { path: string, type: string }[] = <{ path: string, type: string }[]>this.config.get('clients');

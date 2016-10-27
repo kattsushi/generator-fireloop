@@ -1,6 +1,6 @@
 {
   "name": "generator-fireloop",
-  "version": "1.0.0-alpha.15",
+  "version": "1.0.0-alpha.16",
   "main": "generators/app/index.js",
   "description": "",
   "scripts": {
@@ -21,14 +21,15 @@
     "Angular CLI"
   ],
   "dependencies": {
-    "angular-cli": "^1.0.0-beta.18",
+    "angular-cli": "1.0.0-beta.18",
     "chalk": "1.1.3",
-    "change-case": "^3.0.0",
-    "generator-loopback": "^1.24.4",
-    "rimraf": "^2.5.4",
-    "snyk": "^1.19.1",
-    "ts-node": "^1.6.0",
-    "yeoman-generator": "^0.24.1"
+    "change-case": "3.0.0",
+    "generator-loopback": "1.24.4",
+    "nodemon": "1.11.0",
+    "rimraf": "2.5.4",
+    "snyk": "1.19.1",
+    "ts-node": "1.6.0",
+    "yeoman-generator": "0.24.1"
   },
   "devDependencies": {
     "@types/chalk": "0.4.31",

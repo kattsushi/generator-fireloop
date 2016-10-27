@@ -20,20 +20,20 @@ module.exports = generators.Base.extend({
     this.log(chalk.yellow('\nLoading LoopBack Model Generator.\n'));
   },
   // Not reinventing the wheel, let LoopBack Generator to build the Base.
-  installBase: function () {
+  initializing: function () {
     this.composeWith('fireloop:model', {
       args: this.options._argv._
     }, { local: require.resolve('generator-loopback/model') });
   },
   // Replace JS Model for TS Model
-  end: function() {
-    let modelName  = this.options._argv._.shift();
+  end: function () {
+    let modelName = this.options._argv._.shift();
     let casedName = changeCase.paramCase(modelName);
-    fs.unlinkSync(`./common/models/${ casedName }.js`);
+    fs.unlinkSync(`./common/models/${casedName}.js`);
     [
       {
         template: 'templates/model.ts',
-        output: `./common/models/${ casedName }.ts`,
+        output: `./common/models/${casedName}.ts`,
         params: { modelName: modelName }
       }
     ].forEach(
@@ -49,6 +49,6 @@ module.exports = generators.Base.extend({
           )
         )
       }
-    );
+      );
   }
 });

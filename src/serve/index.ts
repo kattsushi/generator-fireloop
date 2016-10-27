@@ -25,8 +25,14 @@ module.exports = generators.Base.extend({
 
     let spawns: any = {
       server: {
-        cmd  : `${ require.resolve('ts-node').replace(/ts-node\/dist\/index.js/, '') }.bin/ts-node`,
-        argv : ['.']
+        cmd  : `${ require.resolve('nodemon').replace(/nodemon\/lib\/nodemon.js/, '') }.bin/nodemon`,
+        argv : [
+          '--ext js,ts,json',
+          '--watch common',
+          '--watch server',
+          `--exec '${ require.resolve('ts-node').replace(/ts-node\/dist\/index.js/, '') }.bin/ts-node'`,
+          '.'
+        ]
       },
       web: {
         cmd  : `${ require.resolve('angular-cli').replace(/angular-cli\/lib\/cli\/index.js/, '') }.bin/ng`,
