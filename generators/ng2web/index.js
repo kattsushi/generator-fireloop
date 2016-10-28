@@ -73,7 +73,6 @@ module.exports = generators.Base.extend({
     copyTemplates: function () {
         var _this = this;
         if (this.options.current) {
-            this.options.current = 'webapp';
             [
                 {
                     template: 'templates/app.module.ts',
