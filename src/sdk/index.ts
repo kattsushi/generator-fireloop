@@ -24,7 +24,9 @@ module.exports = generators.Base.extend({
         this.destinationPath('node_modules/.bin/lb-sdk'),
         this.options.serverPath || 'server/server',
         this.options.clientPath || 'webapp/src/app/shared/sdk',
-        '-d', this.options.clientType.match(/(web|ionic)/) ? 'ng4web' : this.options.clientType.trim(),
+        '-d', !this.options.clientType || this.options.clientType.match(/(web|ionic)/)
+                                        ? 'ng4web'
+                                        : this.options.clientType.trim(),
         '-w', 'enabled'
       ]
     );
