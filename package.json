@@ -1,6 +1,6 @@
 {
   "name": "generator-fireloop",
-  "version": "1.0.0-alpha.16",
+  "version": "1.0.0-alpha.17",
   "main": "generators/app/index.js",
   "description": "",
   "scripts": {

@@ -6,13 +6,13 @@ declare var module: { exports: <%= modelName %> };
  **/
 class <%= modelName %> {
 
-  constructor(ParentModel: any) {
+  constructor(Model: any) {
     // Register your hooks withing the constructor
     // https://docs.strongloop.com/display/public/LB/Operation+hooks
-    ParentModel.observe('before save', <%= modelName %>.beforeSave);
-    ParentModel.observe('after save', <%= modelName %>.afterSave);
-    ParentModel.observe('access', <%= modelName %>.access);
-    ParentModel.observe('loaded', <%= modelName %>.loaded);
+    Model.observe('before save', <%= modelName %>.beforeSave);
+    Model.observe('after save', <%= modelName %>.afterSave);
+    Model.observe('access', <%= modelName %>.access);
+    Model.observe('loaded', <%= modelName %>.loaded);
   }
 
   static beforeSave(ctx, next): void {
