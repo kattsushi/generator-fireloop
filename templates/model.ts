@@ -6,7 +6,10 @@ declare var module: { exports: <%= modelName %> };
  **/
 class <%= modelName %> {
 
+  private static app: any;
+
   constructor(Model: any) {
+    <%= modelName %>.app = Model.app;
     // Register your hooks withing the constructor
     // https://docs.strongloop.com/display/public/LB/Operation+hooks
     Model.observe('before save', <%= modelName %>.beforeSave);

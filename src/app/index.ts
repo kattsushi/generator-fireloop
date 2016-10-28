@@ -27,9 +27,9 @@ module.exports = generators.Base.extend({
     };
 
     let sharedPaths: any = {
-      web          : 'src/app/shared/sdk',
-      nativescript : 'src/app/shared/sdk',
-      ionic        : 'src/app/shared/sdk'
+      web           : 'src/app/shared/sdk',
+      nativescript2 : 'app/shared/sdk',
+      ionic         : 'src/app/shared/sdk'
     };
 
     let clients: { path: string, type: string }[] = <{ path: string, type: string }[]>this.config.get('clients');
@@ -60,8 +60,8 @@ module.exports = generators.Base.extend({
       let answer = answers.list;
       switch (answer) {
         case keys.GENERATE_PROJECT:
+          this.config.set('version', require('../../package.json').version);
           this.composeWith('fireloop:server').on('end', () => {
-            this.config.set('version', require('../../package.json').version);
             this.composeWith('fireloop:setup').on('end', () => done())
           });
           break;
@@ -81,7 +81,7 @@ module.exports = generators.Base.extend({
             this.composeWith('fireloop:sdk', {
               options: {
                 clientPath : `${clients[answers.client].path}/${sharedPaths[clients[answers.client].type]}`,
-                type       : clients[answers.client].type
+                clientType : clients[answers.client].type
               }
             });
           }.bind(this));

@@ -22,7 +22,7 @@ module.exports = generators.Base.extend({
         };
         var sharedPaths = {
             web: 'src/app/shared/sdk',
-            nativescript: 'src/app/shared/sdk',
+            nativescript2: 'app/shared/sdk',
             ionic: 'src/app/shared/sdk'
         };
         var clients = this.config.get('clients');
@@ -49,8 +49,8 @@ module.exports = generators.Base.extend({
             var answer = answers.list;
             switch (answer) {
                 case keys.GENERATE_PROJECT:
+                    this.config.set('version', require('../../package.json').version);
                     this.composeWith('fireloop:server').on('end', function () {
-                        _this.config.set('version', require('../../package.json').version);
                         _this.composeWith('fireloop:setup').on('end', function () { return done(); });
                     });
                     break;
@@ -70,7 +70,7 @@ module.exports = generators.Base.extend({
                         this.composeWith('fireloop:sdk', {
                             options: {
                                 clientPath: clients[answers.client].path + "/" + sharedPaths[clients[answers.client].type],
-                                type: clients[answers.client].type
+                                clientType: clients[answers.client].type
                             }
                         });
                     }.bind(this));

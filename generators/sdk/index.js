@@ -18,7 +18,9 @@ module.exports = generators.Base.extend({
         this.spawnCommand(require.resolve('ts-node').replace(/ts-node\/dist\/index.js/, '') + ".bin/ts-node", [
             this.destinationPath('node_modules/.bin/lb-sdk'),
             this.options.serverPath || 'server/server',
-            this.options.clientPath || 'webapp/src/app/shared/sdk'
+            this.options.clientPath || 'webapp/src/app/shared/sdk',
+            '-d', this.options.clientType.match(/(web|ionic)/) ? 'ng4web' : this.options.clientType.trim(),
+            '-w', 'enabled'
         ]);
     }
 });
