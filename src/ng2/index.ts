@@ -27,7 +27,7 @@ module.exports = generators.Base.extend({
       default: 0,
       choices: [
         '1.- Angular 2 Web',
-        '2.- Angular 2 {N}ative',
+        '2.- Angular 2 {N}ative (TODO)',
         '3.- Angular 2 Ionic (TODO)'
       ]
     }]).then(function (answers: { list: any }) {
@@ -39,7 +39,8 @@ module.exports = generators.Base.extend({
           this.composeWith('fireloop:ng2web').on('end', () => done());
           break;
         case 2:
-          this.composeWith('fireloop:nativescript').on('end', () => done());
+          this.log(chalk.red('Oops. I\'m sorry, this is not yet implemented'));
+          //this.composeWith('fireloop:nativescript').on('end', () => done());
           break;
         case 3:
           this.log(chalk.red('Oops. I\'m sorry, this is not yet implemented'));
