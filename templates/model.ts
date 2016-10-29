@@ -18,22 +18,22 @@ class <%= modelName %> {
     Model.observe('loaded', <%= modelName %>.loaded);
   }
 
-  static beforeSave(ctx, next): void {
+  static beforeSave(ctx: any, next: Function): void {
     //console.log('<%= modelName %>: Before Save');
     next();
   }
 
-  static afterSave(ctx, next): void {
+  static afterSave(ctx: any, next: Function): void {
     //console.log('<%= modelName %>: After Save');
     next();
   }
 
-  static access(ctx, next): void {
+  static access(ctx: any, next: Function): void {
     //console.log('<%= modelName %>: Access');
     next();
   }
 
-  static loaded(ctx, next): void {
+  static loaded(ctx: any, next: Function): void {
     //console.log('<%= modelName %>: Loaded');
     next();
   }
