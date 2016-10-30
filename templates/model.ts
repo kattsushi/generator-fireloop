@@ -7,15 +7,41 @@ declare var module: { exports: <%= modelName %> };
 class <%= modelName %> {
 
   private static app: any;
+  // private configRemoteMethod: Object; // remote method example
 
   constructor(Model: any) {
-    <%= modelName %>.app = Model.app;
+    <%= modelName %>.app = this.Model.app;
     // Register your hooks withing the constructor
     // https://docs.strongloop.com/display/public/LB/Operation+hooks
-    Model.observe('before save', <%= modelName %>.beforeSave);
-    Model.observe('after save', <%= modelName %>.afterSave);
-    Model.observe('access', <%= modelName %>.access);
-    Model.observe('loaded', <%= modelName %>.loaded);
+    this.Model.observe('before save', <%= modelName %>.beforeSave);
+    this.Model.observe('after save', <%= modelName %>.afterSave);
+    this.Model.observe('access', <%= modelName %>.access);
+    this.Model.observe('loaded', <%= modelName %>.loaded);
+
+    /**
+     * Remote Method example
+     */
+    //=============================================================
+    //  this.configRemoteMethod = {
+    //     accepts: [{
+    //         arg: 'anyArg',
+    //         type: 'string'
+    //     }],
+    //     returns: {
+    //       arg: 'success',
+    //       type: 'boolean',
+    //       http: {
+    //         path: '/method',
+    //         verb: 'post'
+    //       }
+    //     }
+    //  };
+    //  this.Model.remoteMethod('method', this.configGenerateAudit);
+    //  this.Model.method = function (anyArg: string, cb: Function) {
+    //     console.log('remote method rocks');
+    //     cb(null, true);
+    //   }
+     //============================================================
   }
 
   static beforeSave(ctx: any, next: Function): void {
